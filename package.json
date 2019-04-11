@@ -5,14 +5,18 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "mocha ./tests/**/*.spec.js"
+    "test": "jasmine *[sS]pec.js"
   },
   "author": "abubakar sambo",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^3.0.5",
     "body-parser": "^1.18.3",
     "chai": "^4.2.0",
     "express": "^4.16.4",
     "mocha": "^6.1.2"
+  },
+  "devDependencies": {
+    "jasmine": "^3.4.0"
   }
 }
