@@ -1,5 +1,4 @@
 const express = require('express');
-const Party = require('../controllers/partyController');
 const User = require('../controllers/userController');
 
 const router = express.Router();
