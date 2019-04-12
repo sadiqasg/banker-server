@@ -23,12 +23,8 @@ describe("MyJSUtilities", function() {
     it("should be able repeat a string multiple times",function() {
       expect(utils.repeat).toBeDefined();
       expect(utils.repeat("hello", 3)).toEqual("hellohellohello");
-    });     
-
-    it("should explicitly fail", function () {
-      fail('Forced to fail'); 
     });
-
+    
   });
 
 });
