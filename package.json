@@ -5,7 +5,9 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "jasmine **/*[sS]pec.js"
+    "test": "istanbul cover --include-all-sources jasmine-node spec",
+    "coverage": "./node_modules/istanbul/lib/cli cover _jasmine_node spec",
+    "report-coverage": "cat ./coverage/lcov.info | coveralls"
   },
   "author": "abubakar sambo",
   "license": "ISC",
@@ -14,9 +16,12 @@
     "body-parser": "^1.18.3",
     "chai": "^4.2.0",
     "express": "^4.16.4",
+    "istanbul": "^0.4.5",
+    "jasmine-node": "^1.16.2",
     "mocha": "^6.1.2"
   },
   "devDependencies": {
+    "coveralls": "^3.0.3",
     "jasmine": "^3.4.0"
   }
 }

@@ -2,18 +2,18 @@ const bcrypt = require('bcrypt');
 const users = require('../models/users');
 
 class Users {
-  static async getUsers(req, res) {
+  static getUsers(req, res) {
     try {
-      return await res.json({ status: 200, users });
+      return res.json({ status: 200, users });
     } catch (err) {
       return res.status(404).json({ status: 404, error: 'Users not found!' });
     }
   }
 
-  static async getOneUser(req, res) {
+  static getOneUser(req, res) {
     const userId = parseInt(req.params.id, 10);
     try {
-      const userItem = await users.filter(user => user.userId == userId)[0];
+      const userItem = users.filter(user => user.userId == userId)[0];
       if (!userItem) {
         return res.status(404).json({ status: 404, error: 'User does not exist!' });
       }
@@ -38,10 +38,10 @@ class Users {
     res.status(201).json({ status: 201, data: [users[users.length - 1]] });
   }
 
-  static async editUser(req, res) {
+  static editUser(req, res) {
     try {
       const userId = parseInt(req.params.id, 10);
-      const user = await users.filter(item => item.userId == userId)[0];
+      const user = users.filter(item => item.userId == userId)[0];
       if (!user) {
         return res.status(404).json({ status: 404, error: 'user does not exist!' });
       }
@@ -57,7 +57,7 @@ class Users {
     }
   }
 
-  static async deleteUser(req, res) {
+  static deleteUser(req, res) {
     try {
       const userId = parseInt(req.params.id, 10);
       const user = users.filter(item => item.userId == userId)[0];
