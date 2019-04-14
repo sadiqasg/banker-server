@@ -1,4 +1,5 @@
 [
-	{"userId":"1", "email":"a@example.com", "firstName":"mr", "lastName":"a", "password":"abc", "type":"user", "isAdmin": false},
-	{"userId":"2", "email":"b@example.com", "firstName":"miss", "lastName":"b", "password":"def", "type":"user", "isAdmin": false}
+	{"userId":"1","email":"a@example.com","firstName":"mr","lastName":"a","password":"abc","type":"user","isAdmin":false},
+	{"userId":"2","email":"b@example.com","firstName":"miss","lastName":"b","password":"def","type":"user","isAdmin":false},
+	{"UserId":"3","email":"jd@example.com","firstName":"john", "lastName":"doe","password":"jhi","type":"user","isAdmin":false}
 ]
