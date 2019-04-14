@@ -1,5 +1,8 @@
 const bcrypt = require('bcrypt');
-const users = require('../models/users');
+const jwt = require('jsonwebtoken');
+const fs = require('fs');
+
+const users = require('../models/users.json');
 
 class Users {
   static getUsers(req, res) {
@@ -36,6 +39,16 @@ class Users {
     };
     users.push(newUser);
     res.status(201).json({ status: 201, data: [users[users.length - 1]] });
+    // res.status(201).json({
+    //   status: 201,
+    //   data: [{
+    //     token: 'token',
+    //     id: users.length + 1,
+    //     firstName: req.body.firstName,
+    //     lastName: req.body.lastName,
+    //     email: req.body.email
+    //   }]
+    // })
   }
 
   static editUser(req, res) {
@@ -70,6 +83,31 @@ class Users {
     } catch (err) {
       res.status(500).json({ status: 500, error: 'Sorry about that, not available' });
     }
+  }
+
+  // signin
+  static signIn(req, res) {
+    const user = {
+      email: req.body.email,
+      password: req.body.password
+    }
+    const userSearch = users.filter(u => u.email === user.email && u.password === user.password);
+    
+    if (userSearch.length === 0) {
+      return res.send('invalid email or password');
+    }
+    jwt.sign({user},'SuperSecRetKey', { expiresIn: 60 * 60 }, (err, token) => {
+        res.status(200).json({
+          status: 200,
+          data: [{
+            token: token,
+            id: userSearch[0].userId,
+            firstName: userSearch[0].firstName,
+            lastName: userSearch[0].lastName,
+            email: userSearch[0].email
+          }]
+        })
+    });
   }
 }
 
