@@ -19,7 +19,8 @@
     "istanbul": "^0.4.5",
     "jasmine-node": "^1.16.2",
     "jsonwebtoken": "^8.5.1",
-    "mocha": "^6.1.2"
+    "mocha": "^6.1.2",
+    "pg": "^7.9.0"
   },
   "devDependencies": {
     "coveralls": "^3.0.3",
