@@ -1,5 +1,6 @@
 const express = require('express');
 const User = require('../controllers/userController');
+const Accounts = require('../controllers/accountController');
 
 const router = express.Router();
 
@@ -12,6 +13,9 @@ router.post('/auth/signup', User.createUser);
 // router.delete('/users/:id', User.deleteUser);
 
 router.post('/auth/signin', User.signIn);
+
+// accounts
+router.get('/accounts', Accounts.getAccounts);
 
 router.use('*', (req, res) => res.json('Route does not exist'));
 
