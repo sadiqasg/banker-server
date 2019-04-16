@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "nyc mocha spec/*.js",
+    "test": "nyc mocha spec/*.js --exit",
     "test-dev": "istanbul cover --include-all-sources jasmine-node spec",
     "coverage": "./node_modules/istanbul/lib/cli cover _mocha spec",
     "report-coverage": "cat ./coverage/lcov.info | coveralls"
