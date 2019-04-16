@@ -16,3 +16,5 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(`${apiversion1}`, routes);
 
 app.listen(port, () => console.log(`listening on port ${port}`))
+
+module.exports = app;

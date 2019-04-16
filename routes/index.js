@@ -16,6 +16,7 @@ router.post('/auth/signin', User.signIn);
 
 // accounts
 router.get('/accounts', Accounts.getAccounts);
+router.get('/accounts/:id', Accounts.getOneAccount);
 
 router.use('*', (req, res) => res.json('Route does not exist'));
 
