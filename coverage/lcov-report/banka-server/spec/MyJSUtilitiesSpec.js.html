@@ -22,7 +22,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>15/15</span>
+        <span class='fraction'>21/21</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -32,12 +32,12 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>6/6</span>
+        <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>15/15</span>
+        <span class='fraction'>21/21</span>
       </div>
     </div>
   </div>
@@ -72,28 +72,18 @@
 27
 28
 29
-30</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">1×</span>
+30
+31
+32
+33
+34
+35
+36
+37</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
@@ -101,42 +91,73 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const utils = require("../index.js")
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">let accounts = require('../controllers/accountController');
+let users = require('../controllers/userController');
 &nbsp;
-describe("MyJSUtilities", function() {
 &nbsp;
-  describe("&gt;String Utils", function() {
-    it("should be able to lower case a string",function() {
-      expect(utils.toLowerCase).toBeDefined();
-      expect(utils.toLowerCase("HELLO WORLD")).toEqual("hello world");
+describe("Accounts", () =&gt; {
+  describe("/GET", () =&gt; {
+    it("should get all accounts", () =&gt; {
+      expect(accounts.getAccounts).toBeDefined();
+    })
+  })
+});
 &nbsp;
+describe("Users", () =&gt; {
+  describe("/GET users", () =&gt; {
+    it('should return all users', () =&gt; {
+      expect(users.getUsers).toBeDefined();
     });
-&nbsp;
-    it("should be able to upper case a string",function() {
-      expect(utils.toUpperCase).toBeDefined();
-      expect(utils.toUpperCase("hello world")).toEqual("HELLO WORLD");
+    it('should return one user', () =&gt; {
+      expect(users.getOneUser).toBeDefined();
     });
-&nbsp;
-    it("should be able to confirm if a string contains a substring",function() {
-      expect(utils.contains).toBeDefined();
-      expect(utils.contains("hello world","hello",0)).toBeTruthy();
-&nbsp;
-    });
-&nbsp;
-    it("should be able repeat a string multiple times",function() {
-      expect(utils.repeat).toBeDefined();
-      expect(utils.repeat("hello", 3)).toEqual("hellohellohello");
-    });
-    
   });
-&nbsp;
-});</pre></td></tr>
+  describe("/POST users", () =&gt; {
+    it('should create users', () =&gt; {
+      expect(users.createUser).toBeDefined();
+    })
+  });
+  describe("/PATCH users/:id", () =&gt; {
+    it('should edit users', () =&gt; {
+      expect(users.editUser).toBeUndefined();
+    })
+  });
+  describe("/DELETE users/:id", () =&gt; {
+    it('should create users', () =&gt; {
+      expect(users.deleteUser).toBeUndefined();
+    })
+  });
+})</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Apr 12 2019 17:29:21 GMT+0100 (WAT)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Apr 16 2019 09:28:55 GMT+0100 (WAT)
 </div>
 </div>
 <script src="../../prettify.js"></script>
