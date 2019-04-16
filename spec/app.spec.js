@@ -41,26 +41,26 @@ describe('GET /user/:id', function () {
 });
 
 // Testing post user endpoint
-describe('POST /auth/signup', function () {
-    let data = {
-        "email": "example@mail.com",
-        "firstName": "test",
-        "lastName": "test",
-        "password": "test"
-    }
-    it('respond with 201 created', function (done) {
-        request(app)
-            .post('/api/v1/auth/signup')
-            .send(data)
-            .set('Accept', 'application/json')
-            .expect('Content-Type', /json/)
-            .expect(201)
-            .end((err) => {
-                if (err) return done(err);
-                done();
-            });
-    });
-});
+// describe('POST /auth/signup', function () {
+//     let data = {
+//         "email": "example@mail.com",
+//         "firstName": "test",
+//         "lastName": "test",
+//         "password": "test"
+//     }
+//     it('respond with 201 created', function (done) {
+//         request(app)
+//             .post('/api/v1/auth/signup')
+//             .send(data)
+//             .set('Accept', 'application/json')
+//             .expect('Content-Type', /json/)
+//             .expect(201)
+//             .end((err) => {
+//                 if (err) return done(err);
+//                 done();
+//             });
+//     });
+// });
 
 // Testing post duplicate user endpoint
 describe('POST /auth/signup', function () {
@@ -84,3 +84,12 @@ describe('POST /auth/signup', function () {
     });
 });
 
+// Testing accounts
+describe('GET /accounts', () => {
+  it('returns all accounts', (done) => {
+    request(app)
+      .get('/api/v1/accounts')
+      .expect('Content-Type', /json/)
+      .expect(200, done)
+  })
+})
