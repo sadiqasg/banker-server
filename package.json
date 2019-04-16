@@ -7,7 +7,7 @@
     "start": "node app.js",
     "test": "nyc mocha spec/*.js --exit",
     "test-dev": "istanbul cover --include-all-sources jasmine-node spec",
-    "coverage": "./node_modules/istanbul/lib/cli cover _mocha spec",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
     "report-coverage": "cat ./coverage/lcov.info | coveralls"
   },
   "author": "abubakar sambo",
