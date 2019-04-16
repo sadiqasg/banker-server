@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "mocha spec/*.js",
+    "test": "nyc mocha spec/*.js",
     "test-dev": "istanbul cover --include-all-sources jasmine-node spec",
     "coverage": "./node_modules/istanbul/lib/cli cover _mocha spec",
     "report-coverage": "cat ./coverage/lcov.info | coveralls"
@@ -22,6 +22,7 @@
     "jasmine-node": "^1.16.2",
     "jsonwebtoken": "^8.5.1",
     "mocha": "^6.1.2",
+    "nyc": "^14.0.0",
     "pg": "^7.9.0",
     "request": "^2.88.0",
     "supertest": "^4.0.2"
